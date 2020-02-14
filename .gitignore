@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Temp
+/ProjectSettings
+/Library
+/Builds
+/Assets/AWS/AWSSDK
