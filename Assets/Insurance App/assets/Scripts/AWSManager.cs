@@ -30,7 +30,7 @@ public class AWSManager : MonoBehaviour
         }
     }
 
-    AmazonS3Client S3Client;
+    AmazonS3Client S3Client;  //  IAmazonS3
 
     private void Start()
     {
@@ -41,10 +41,11 @@ public class AWSManager : MonoBehaviour
         //AWSConfigsS3.UseSignatureVersion4 = true;
         //AWSConfigs.CorrectForClockSkew = true;
 
+        // Initialize the Amazon Cognito credentials provider
         CognitoAWSCredentials credentials = new CognitoAWSCredentials(
-         "us-east-2:4e932ff9-467f-43e9-abb9-4478037595af", // Identity pool ID
-             RegionEndpoint.USEast2 // Region
-            );
+            "us-east-2:606e9a0a-5eb6-402d-a840-a53e5c1dd364", // Identity pool ID
+            RegionEndpoint.USEast2 // Region
+        );
 
         S3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
 
