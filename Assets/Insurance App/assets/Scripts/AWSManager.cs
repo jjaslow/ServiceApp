@@ -30,6 +30,19 @@ public class AWSManager : MonoBehaviour
         }
     }
 
+#if UNITY_ANDROID
+    public void UsedOnlyForAOTCodeGeneration()
+    {
+        //Bug reported on github https://github.com/aws/aws-sdk-net/issues/477
+        //IL2CPP restrictions: https://docs.unity3d.com/Manual/ScriptingRestrictions.html
+        //Inspired workaround: https://docs.unity3d.com/ScriptReference/AndroidJavaObject.Get.html
+
+        AndroidJavaObject jo = new AndroidJavaObject("android.os.Message");
+        int valueString = jo.Get<int>("what");
+        string stringValue = jo.Get<string>("what");
+    }
+#endif
+
     AmazonS3Client S3Client;  //  IAmazonS3
 
     private void Start()
@@ -37,9 +50,6 @@ public class AWSManager : MonoBehaviour
         System.Net.ServicePointManager.DefaultConnectionLimit = 1000;
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
-        //AWSConfigs.RegionEndpoint = RegionEndpoint.USEast2;
-        //AWSConfigsS3.UseSignatureVersion4 = true;
-        //AWSConfigs.CorrectForClockSkew = true;
 
         // Initialize the Amazon Cognito credentials provider
         CognitoAWSCredentials credentials = new CognitoAWSCredentials(
@@ -49,7 +59,7 @@ public class AWSManager : MonoBehaviour
 
         S3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
 
-        //lIST ALL AWS BUCKETS
+        /*/lIST ALL AWS BUCKETS
         S3Client.ListBucketsAsync(new ListBucketsRequest(), (responseObject) =>
         {
             if (responseObject.Exception == null)
@@ -93,8 +103,6 @@ public class AWSManager : MonoBehaviour
             }
         };
         
-
-        int caseID = int.Parse(UIManager.Instance.activeCase.caseID);
         PostObjectToAWS(path);
     }
 
@@ -135,42 +143,6 @@ public class AWSManager : MonoBehaviour
             }
         });
 
-    }
-
-
-
-    ////////////////////
-    IEnumerator PostObjectToAWSxxx(FileStream file)
-    {
-        yield return new WaitForSeconds(5);
-
-        var request = new PostObjectRequest()
-        {
-            Bucket = "jaslowserviceappcasefiles",
-            Key = "case" + UIManager.Instance.activeCase.caseID + ".dat",
-            InputStream = file,
-            CannedACL = S3CannedACL.Private,
-            Region = RegionEndpoint.USEast2
-        };
-
-
-        S3Client.PostObjectAsync(request, (responseObj) =>
-        {
-            if (responseObj.Exception == null)
-            {
-                Debug.Log("\nAWS object " + responseObj.Request.Key + " posted to bucket " + responseObj.Request.Bucket);
-                file.Close();
-            }
-            else
-            {
-                Debug.Log("AWS post exception!::\n");
-                Debug.Log(responseObj.Exception);
-                file.Close();
-            }
-        });
-
-        //yield return new WaitForSeconds(5);
-        //SceneManager.LoadScene(0);
     }
 
 }

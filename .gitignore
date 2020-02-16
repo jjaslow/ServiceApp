@@ -343,3 +343,4 @@ healthchecksdb
 /Library
 /Builds
 /Assets/AWS/AWSSDK
+/Assets/Insurance App/assets/Scripts/Panels/APIKeyManager.cs

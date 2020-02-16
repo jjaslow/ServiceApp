@@ -48,11 +48,11 @@ public class CreateLocationPanel : MonoBehaviour, iPanel
 
     IEnumerator DownloadMap()
     {
-        //https://maps.googleapis.com/maps/api/staticmap?center=1.290270,103.851959&zoom=19&size=700x400&key=AIzaSyCC454iRbht9C3yz7OxD78VWynSrdcqRwI
+        //https://maps.googleapis.com/maps/api/staticmap?center=1.290270,103.851959&zoom=19&size=700x400&key=XXXXX
 
         string baseURL = "https://maps.googleapis.com/maps/api/staticmap?center=";
         string zoomAndSize = "&zoom=19&size=700x400&key=";
-        string apiKey = "AIzaSyCC454iRbht9C3yz7OxD78VWynSrdcqRwI";
+        string apiKey = APIKeyManager.Instance.GoogleAPIKey();
 
         string finalURL = baseURL + xCoord + "," + yCoord + zoomAndSize + apiKey;
         Debug.Log("GPS Map URL: " + finalURL);

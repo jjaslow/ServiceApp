@@ -308,22 +308,22 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoSync">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.CognitoSync.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.CognitoSync.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.Core.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.IdentityManagement.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.S3.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
-      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWS/AWSSDK/AWSSDK.SecurityToken.dll</HintPath>
+      <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Assets/AWSSDK/AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/jason/OneDrive/DeveloperRoadmap/VR_AR/Unity Projects/GDHQ Service Application/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
