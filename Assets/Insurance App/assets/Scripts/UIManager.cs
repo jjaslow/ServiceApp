@@ -62,8 +62,12 @@ public class UIManager : MonoBehaviour
             j.text = "";
         }
 
-        CreatePhotoPanel cpp = GameObject.FindGameObjectWithTag("CreatePhotoPanel").GetComponent<CreatePhotoPanel>();
-        cpp.ResetCameraButtomImage();
+        if(GameObject.FindGameObjectWithTag("CreatePhotoPanel") != null)
+        {
+            CreatePhotoPanel cpp = GameObject.FindGameObjectWithTag("CreatePhotoPanel").GetComponent<CreatePhotoPanel>();
+            cpp.ResetCameraButtomImage();
+        }
+        
 
     }
 

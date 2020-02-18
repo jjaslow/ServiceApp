@@ -5411,8 +5411,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 908455806079643552}
   m_HandleRect: {fileID: 7144940369753196121}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.52840745
+  m_Value: 1.0000002
+  m_Size: 0.5284075
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6459,42 +6459,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8733736654218263681}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8733736654210748082}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8733736655091068875}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8733736654478057663}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 8733736654478057664}
+        m_MethodName: ProcessInfo
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6876,17 +6843,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8733736655091068875}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 8733736654210748084}
         m_MethodName: ProcessInfo
         m_Mode: 1
@@ -7827,7 +7783,7 @@ MonoBehaviour:
   dateText: {fileID: 8733736653799385630}
   locationText: {fileID: 8733736655147883017}
   locationNotesText: {fileID: 8733736655276003210}
-  image: {fileID: 0}
+  image: {fileID: 8733736654535687984}
   photoNotesText: {fileID: 1253521102}
 --- !u!1 &8733736654503724617
 GameObject:
@@ -7906,31 +7862,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8733736654503724617}
   m_CullTransparentMesh: 0
---- !u!114 &8733736654535687976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8733736654535687982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!222 &8733736654535687977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7949,7 +7880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8733736654535687983}
   - component: {fileID: 8733736654535687977}
-  - component: {fileID: 8733736654535687976}
+  - component: {fileID: 8733736654535687984}
   m_Layer: 5
   m_Name: Photo_Image
   m_TagString: Untagged
@@ -7976,6 +7907,34 @@ RectTransform:
   m_AnchoredPosition: {x: -10, y: -202.99994}
   m_SizeDelta: {x: -80, y: -1058}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8733736654535687984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733736654535687982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8733736654542058699
 GameObject:
   m_ObjectHideFlags: 0
@@ -9387,17 +9346,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 55
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'SMITH, JOHN
-
-    ALBURQUERQUE, NM
-
-    July 23, 2018'
+  m_Text: 
 --- !u!222 &8733736655294856202
 CanvasRenderer:
   m_ObjectHideFlags: 0

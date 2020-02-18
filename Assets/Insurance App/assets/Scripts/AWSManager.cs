@@ -12,6 +12,8 @@ using Amazon.CognitoIdentity;
 using Amazon;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
+using System.Threading;
+using System.Threading.Tasks;
 
 public class AWSManager : MonoBehaviour
 {
@@ -43,7 +45,8 @@ public class AWSManager : MonoBehaviour
     }
 #endif
 
-    AmazonS3Client S3Client;  //  IAmazonS3
+    AmazonS3Client S3Client;
+    string bucketValue = "jaslowserviceappcasefiles";
 
     private void Start()
     {
@@ -112,7 +115,6 @@ public class AWSManager : MonoBehaviour
         //FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
         FileStream stream = File.OpenRead(path);
         
-        string bucketValue = "jaslowserviceappcasefiles";
         string keyValue = "case" + UIManager.Instance.activeCase.caseID + ".dat";
 
         PostObjectRequest request = new PostObjectRequest()
@@ -142,6 +144,66 @@ public class AWSManager : MonoBehaviour
                 stream.Dispose();
             }
         });
+
+    }
+
+
+    public void FindCaseInAWSAsync(int caseNumber)
+    {
+        var request = new ListObjectsRequest()
+        {
+            BucketName = bucketValue
+        };
+        bool caseFound = false;
+
+        S3Client.ListObjectsAsync(request, (responseObject) =>
+        {
+                if (responseObject.Exception == null)
+                {
+                    if (responseObject.Response.S3Objects.Count > 0)
+                    {
+                        responseObject.Response.S3Objects.ForEach((o) =>
+                        {
+                            int responseCaseNumber = int.Parse(o.Key.Substring(4, o.Key.IndexOf('.') - 4));
+                            if (caseNumber == responseCaseNumber)
+                            {
+                                downloadCase(caseNumber);
+                                Debug.Log("Found Case# " + caseNumber);
+                                caseFound = true;
+                                return;
+                            }
+                        });
+                    }
+                }
+                else
+                {
+                    Debug.Log("****** AWS get exception! *****");
+                }
+
+                if(!caseFound)
+                    Debug.Log("****** NO SUCH CASE EXISTS!  ******");
+
+        });
+
+    }
+
+    void downloadCase(int caseNumber)
+    {
+        string keyValue = "case" + caseNumber + ".dat";
+        S3Client.GetObjectAsync(bucketValue, keyValue, (responseObj) =>
+        {
+            var response = responseObj.Response;
+            if (response.ResponseStream != null)
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                UIManager.Instance.activeCase = (Case)bf.Deserialize(response.ResponseStream);
+                UIManager.Instance.searchSelectPanel.SetActive(true);
+            }
+            else
+                Debug.LogError("Bad Data Stream from AWS");
+        });
+
+        
 
     }
 
