@@ -74,6 +74,8 @@
     <Compile Include="Assets\Insurance App\assets\Scripts\Panels\SearchPanel.cs" />
     <Compile Include="Assets\Insurance App\assets\Scripts\Panels\SelectPanel.cs" />
     <Compile Include="Assets\Insurance App\assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Zoo App\Scripts\CardPanel.cs" />
+    <Compile Include="Assets\Zoo App\Scripts\Scriptable Objects\CardModel.cs" />
     <None Include="Assets\Resources\awsconfig.xml" />
     <None Include="Assets\link.xml" />
     <Reference Include="Unity.Timeline.Editor">
